@@ -6,8 +6,8 @@
       <class name="com.qa.verizon.shop.ShopTest"/>
       <class name="com.qa.verizon.signin.SignInTestClass">
       <methods>
-      <include name="signInTestWithDataProvider"></include>
-      <include name="signInTestWithExcel"></include>
+      <include name="pageTest"></include>
+     
       </methods>
       </class>
       

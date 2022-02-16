@@ -9,9 +9,9 @@
           <include name="afterEachTest"/>
           <include name="endReport"/>
           <include name="setUp"/>
+          <include name="pageTest"/>
           <include name="quittingBrowser"/>
           <include name="beforeEachTest"/>
-          <include name="signInTestWithExcel"/>
         </methods>
       </class> <!-- com.qa.verizon.signin.SignInTestClass -->
     </classes>

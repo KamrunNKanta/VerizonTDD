@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-SmokeSuite">
-              <span class="suite-name border-skipped">SmokeSuite</span>
+              <span class="suite-name border-failed">SmokeSuite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,  1 skipped,  3 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-SmokeSuite" class="hide-methods skipped suite-SmokeSuite"> (hide)</a> <!-- hide-methods skipped suite-SmokeSuite -->
-                      <a href="#" panel-name="suite-SmokeSuite" class="show-methods skipped suite-SmokeSuite"> (show)</a> <!-- show-methods skipped suite-SmokeSuite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-SmokeSuite" class="hide-methods failed suite-SmokeSuite"> (hide)</a> <!-- hide-methods failed suite-SmokeSuite -->
+                      <a href="#" panel-name="suite-SmokeSuite" class="show-methods failed suite-SmokeSuite"> (show)</a> <!-- show-methods failed suite-SmokeSuite -->
                     </span>
-                    <div class="method-list-content skipped suite-SmokeSuite">
+                    <div class="method-list-content failed suite-SmokeSuite">
                       <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-SmokeSuite" title="com.qa.verizon.signin.SignInTestClass" hash-for-method="signInTestWithExcel">signInTestWithExcel</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SmokeSuite" title="com.qa.verizon.signin.SignInTestClass" hash-for-method="pageTest">pageTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content skipped suite-SmokeSuite -->
+                    </div> <!-- method-list-content failed suite-SmokeSuite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -117,16 +117,6 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-SmokeSuite" title="com.qa.verizon.shop.ShopTest" hash-for-method="shopTest">shopTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-SmokeSuite" title="com.qa.verizon.signin.SignInTestClass" hash-for-method="signInTestWithDataProvider(verizon.qa.data.SignInDataClass@c6da8bb)">signInTestWithDataProvider(verizon.qa.data.SignInDataClass@c6da8bb)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-SmokeSuite" title="com.qa.verizon.signin.SignInTestClass" hash-for-method="signInTestWithDataProvider(verizon.qa.data.SignInDataClass@546e61d5)">signInTestWithDataProvider(verizon.qa.data.SignInDataClass@546e61d5)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-SmokeSuite -->
@@ -141,55 +131,28 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-SmokeSuite" class="panel SmokeSuite">
-          <div class="suite-SmokeSuite-class-skipped">
+          <div class="suite-SmokeSuite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
+              <img src="failed.png"/>
               <span class="class-name">com.qa.verizon.signin.SignInTestClass</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="signInTestWithExcel">
-                  </a> <!-- signInTestWithExcel -->
-                  <span class="method-name">signInTestWithExcel</span>
-                  <div class="stack-trace">java.lang.RuntimeException: java.lang.IllegalArgumentException: Sheet index (1) is out of range (0..0)
-Caused by: java.lang.IllegalArgumentException: Sheet index (1) is out of range (0..0)
-	at org.apache.poi.xssf.usermodel.XSSFWorkbook.validateSheetIndex(XSSFWorkbook.java:1421)
-	at org.apache.poi.xssf.usermodel.XSSFWorkbook.getSheetAt(XSSFWorkbook.java:1137)
-	at org.apache.poi.xssf.usermodel.XSSFWorkbook.getSheetAt(XSSFWorkbook.java:122)
-	at verizon.qa.utilities.ExcelReader.&lt;init&gt;(ExcelReader.java:41)
-	at com.qa.verizon.signin.SignInTestClass.getSignDataExcel(SignInTestClass.java:28)
-	... 22 more
-... Removed 30 stack frames
+                  <a name="pageTest">
+                  </a> <!-- pageTest -->
+                  <span class="method-name">pageTest</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [] but found [Verify your Identity]
+	at verizon.qa.common.CommonMethods.getText(CommonMethods.java:45)
+	at verizon.qa.pages.VerifyIdentityPage.getVerifyText(VerifyIdentityPage.java:30)
+	at verizon.qa.pages.VerifyIdentityPage.verifyIdentityPageSteps(VerifyIdentityPage.java:53)
+	at com.qa.verizon.signin.SignInTestClass.pageTest(SignInTestClass.java:53)
+... Removed 31 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-SmokeSuite-class-skipped -->
-          <div class="suite-SmokeSuite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.qa.verizon.signin.SignInTestClass</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="signInTestWithDataProvider(verizon.qa.data.SignInDataClass@c6da8bb)">
-                  </a> <!-- signInTestWithDataProvider(verizon.qa.data.SignInDataClass@c6da8bb) -->
-                  <span class="method-name">signInTestWithDataProvider</span>
-                  <span class="parameters">(verizon.qa.data.SignInDataClass@c6da8bb)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="signInTestWithDataProvider(verizon.qa.data.SignInDataClass@546e61d5)">
-                  </a> <!-- signInTestWithDataProvider(verizon.qa.data.SignInDataClass@546e61d5) -->
-                  <span class="method-name">signInTestWithDataProvider</span>
-                  <span class="parameters">(verizon.qa.data.SignInDataClass@546e61d5)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-SmokeSuite-class-passed -->
+          </div> <!-- suite-SmokeSuite-class-failed -->
           <div class="suite-SmokeSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -220,8 +183,7 @@ Caused by: java.lang.IllegalArgumentException: Sheet index (1) is out of range (
       &lt;class name=&quot;com.qa.verizon.shop.ShopTest&quot;/&gt;
       &lt;class name=&quot;com.qa.verizon.signin.SignInTestClass&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;signInTestWithDataProvider&quot;/&gt;
-          &lt;include name=&quot;signInTestWithExcel&quot;/&gt;
+          &lt;include name=&quot;pageTest&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- com.qa.verizon.signin.SignInTestClass --&gt;
     &lt;/classes&gt;
@@ -263,28 +225,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'shopTest')
 data.setCell(0, 2, 'com.qa.verizon.shop.ShopTest')
-data.setCell(0, 3, 17599);
+data.setCell(0, 3, 48156);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'signInTestWithDataProvider')
+data.setCell(1, 1, 'pageTest')
 data.setCell(1, 2, 'com.qa.verizon.signin.SignInTestClass')
-data.setCell(1, 3, 14725);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'signInTestWithDataProvider')
-data.setCell(2, 2, 'com.qa.verizon.signin.SignInTestClass')
-data.setCell(2, 3, 14418);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'signInTestWithExcel')
-data.setCell(3, 2, 'com.qa.verizon.signin.SignInTestClass')
-data.setCell(3, 3, 0);
+data.setCell(1, 3, 17435);
 window.suiteTableData['SmokeSuite']= { tableData: data, tableDiv: 'times-div-SmokeSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 46 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-SmokeSuite">
               </div> <!-- times-div-SmokeSuite -->
             </div> <!-- times-div -->
@@ -296,25 +250,12 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">signInTestWithDataProvider(verizon.qa.data.SignInDataClass@c6da8bb)</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (6045ea7e9d98b23070d2cd452e1819fe)] -> xpath: (//span[normalize-space(text())='Sign in'])[1]]Clicked</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (6045ea7e9d98b23070d2cd452e1819fe)] -> xpath: //a[@id='gnav20-sign-id-list-item-3' and @class='gnav20-dropdown-list-item']]Clicked</span>
-                <span class="reporter-method-output">Proxy element for: DefaultElementLocator 'By.xpath: //button[@class='btn-lg btn-common btn-black']'Clicked</span>
-                <span class="reporter-method-output">Actual value :Verify your Identity expected value is Verify your Identity</span>
-                <span class="reporter-method-output">emailhas been selected  for the element[[ChromeDriver: chrome on WINDOWS (6045ea7e9d98b23070d2cd452e1819fe)] -> xpath: //select[@id='authType']]</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (6045ea7e9d98b23070d2cd452e1819fe)] -> id: email]Text value enteredkamrunnaharkanta@gmail</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (6045ea7e9d98b23070d2cd452e1819fe)] -> id: zip]Text value entered17036</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (6045ea7e9d98b23070d2cd452e1819fe)] -> id: loginContinue]Clicked</span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
               <span class="reporter-method-name">shopTest</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (74da950ab3e879b7b16ccf59e64d0ca4)] -> xpath: //button[@id='gnav20-Shop-L1' and @class='gnav20-menu-label gnav20-menu-label-button gnav20-haschild']]Clicked</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (74da950ab3e879b7b16ccf59e64d0ca4)] -> xpath: //a[@id='gnav20-Shop-L2-2']//parent::li]Clicked</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (74da950ab3e879b7b16ccf59e64d0ca4)] -> id: gnav20-Shop-L3-38]Clicked</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (74da950ab3e879b7b16ccf59e64d0ca4)] -> xpath: (//span[contains( .,'Apple')])[3]]Clicked</span>
+                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (1c86827b4833e70581053cb73939b95a)] -> xpath: //button[@id='gnav20-Shop-L1' and @class='gnav20-menu-label gnav20-menu-label-button gnav20-haschild']]Clicked</span>
+                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (1c86827b4833e70581053cb73939b95a)] -> xpath: //a[@id='gnav20-Shop-L2-2']//parent::li]Clicked</span>
+                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (1c86827b4833e70581053cb73939b95a)] -> id: gnav20-Shop-L3-38]Clicked</span>
+                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (1c86827b4833e70581053cb73939b95a)] -> xpath: (//span[contains( .,'Apple')])[3]]Clicked</span>
                 <span class="reporter-method-output">Scrolling down to  0 to 250 pixel )</span>
                 <span class="reporter-method-output">Scrolling up to 250 to 0 pixel</span>
                 <span class="reporter-method-output">Scrolling down to  0 to 250 pixel )</span>
@@ -322,33 +263,31 @@ return data;
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">signInTestWithDataProvider(verizon.qa.data.SignInDataClass@546e61d5)</span>
+              <span class="reporter-method-name">pageTest</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (7db1a2eb29bd346b74bfd03abd678f41)] -> xpath: (//span[normalize-space(text())='Sign in'])[1]]Clicked</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (7db1a2eb29bd346b74bfd03abd678f41)] -> xpath: //a[@id='gnav20-sign-id-list-item-3' and @class='gnav20-dropdown-list-item']]Clicked</span>
+                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (3e402d93c9ef4970e66f0027b6ea157b)] -> xpath: (//span[normalize-space(text())='Sign in'])[1]]Clicked</span>
+                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (3e402d93c9ef4970e66f0027b6ea157b)] -> xpath: //a[@id='gnav20-sign-id-list-item-3' and @class='gnav20-dropdown-list-item']]Clicked</span>
                 <span class="reporter-method-output">Proxy element for: DefaultElementLocator 'By.xpath: //button[@class='btn-lg btn-common btn-black']'Clicked</span>
-                <span class="reporter-method-output">Actual value :Verify your Identity expected value is Verify your Identity</span>
-                <span class="reporter-method-output">emailhas been selected  for the element[[ChromeDriver: chrome on WINDOWS (7db1a2eb29bd346b74bfd03abd678f41)] -> xpath: //select[@id='authType']]</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (7db1a2eb29bd346b74bfd03abd678f41)] -> id: email]Text value enteredaer15@psu.edu</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (7db1a2eb29bd346b74bfd03abd678f41)] -> id: zip]Text value entered17057</span>
-                <span class="reporter-method-output">[[ChromeDriver: chrome on WINDOWS (7db1a2eb29bd346b74bfd03abd678f41)] -> id: loginContinue]Clicked</span>
+                <span class="reporter-method-output">Actual value :Verify your Identity expected value is </span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-SmokeSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">com.qa.verizon.signin.SignInTestClass</span>
               <div class="ignored-methods-div">
+                <span class="ignored-method-name">signInTestWithDataProvider</span>
+                <br/>
                 <span class="ignored-method-name">initiatingExtentReports</span>
                 <br/>
                 <span class="ignored-method-name">endReport</span>
                 <br/>
-                <span class="ignored-method-name">pageTest</span>
+                <span class="ignored-method-name">signInTestWithExcel</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -367,73 +306,55 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">beforeEachTest(public void com.qa.verizon.shop.ShopTest.shopTest(), [])</span>
-                <span class="method-start">301 ms</span>
+                <span class="method-start">455 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">315 ms</span>
+                <span class="method-start">483 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">shopTest</span>
-                <span class="method-start">10106 ms</span>
+                <span class="method-start">15315 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachTest([TestResult name=shopTest status=SUCCESS method=ShopTest.shopTest()[pri:0, instance:com.qa.verizon.s...)</span>
-                <span class="method-start">27707 ms</span>
+                <span class="method-start">63476 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">quittingBrowser</span>
-                <span class="method-start">27712 ms</span>
+                <span class="method-start">64539 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.qa.verizon.signin.SignInTestClass</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">beforeEachTest(public void com.qa.verizon.signin.SignInTestClass.signInTestWithDataProvider(verizon.qa.data.SignInD...)</span>
-                <span class="method-start">28896 ms</span>
+                <span class="method-name">beforeEachTest(public void com.qa.verizon.signin.SignInTestClass.pageTest(), [])</span>
+                <span class="method-start">64543 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">28897 ms</span>
+                <span class="method-start">64544 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">signInTestWithDataProvider(verizon.qa.data.SignInDataClass@c6da8bb)</span>
-                <span class="method-start">37310 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">pageTest</span>
+                <span class="method-start">78729 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachTest([TestResult name=signInTestWithDataProvider status=SUCCESS method=SignInTestClass.signInTestWithData...)</span>
-                <span class="method-start">52036 ms</span>
+                <span class="method-name">afterEachTest([TestResult name=pageTest status=FAILURE method=SignInTestClass.pageTest()[pri:0, instance:com.qa.ve...)</span>
+                <span class="method-start">96173 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">quittingBrowser</span>
-                <span class="method-start">52036 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">beforeEachTest(public void com.qa.verizon.signin.SignInTestClass.signInTestWithDataProvider(verizon.qa.data.SignInD...)</span>
-                <span class="method-start">52833 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">52835 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">signInTestWithDataProvider(verizon.qa.data.SignInDataClass@546e61d5)</span>
-                <span class="method-start">60453 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterEachTest([TestResult name=signInTestWithDataProvider status=SUCCESS method=SignInTestClass.signInTestWithData...)</span>
-                <span class="method-start">74872 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method after">
-                <span class="method-name">quittingBrowser</span>
-                <span class="method-start">74872 ms</span>
+                <span class="method-start">97849 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.qa.verizon.shop.ShopTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite after">
                 <span class="method-name">endReport</span>
-                <span class="method-start">76162 ms</span>
+                <span class="method-start">97884 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

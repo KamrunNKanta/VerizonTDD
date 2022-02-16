@@ -49,6 +49,7 @@ public class SignInTestClass extends BaseClass {
 	public void pageTest() {
 		signInPage.signInPageSteps();
 		registerPage.registerPageSteps();
+
 		verifyIdentityPage.verifyIdentityPageSteps("Verify your Identity", "kamrunnaharkanta@gmail.com", "17036");
 	}
 

@@ -8,11 +8,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -20,7 +15,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-
 
 import java.lang.reflect.Method;
 import com.aventstack.extentreports.ExtentReports;
@@ -59,36 +53,27 @@ public class BaseClass {
 	public void initiatingExtentReports() {
 		extent = ExtentManger.getInstance();
 	}
+
 //@Parameters("browser")
 	@BeforeMethod
 	public void setUp() {
-		/*String os = System.getProperty("os.name");
-		Logger.log("My OS version is " + os); 
-		if(browser.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-		}else if(browser.equalsIgnoreCase("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-		}else if(browser.equalsIgnoreCase("opera")) {
-			WebDriverManager.operadriver().setup();
-			driver = new OperaDriver();
-		}else if(browser.equalsIgnoreCase("edge")) {
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
-		}else if(browser.equalsIgnoreCase("ei")) {
-			WebDriverManager.iedriver().setup();
-			driver = new InternetExplorerDriver();
-		}else if(browser.equalsIgnoreCase("safari") && os.contains("Mac")) {
-			WebDriverManager.safaridriver().setup();
-			driver = new SafariDriver();
-		}else {
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-		}
-		
-		 * */
-		
+		/*
+		 * String os = System.getProperty("os.name"); Logger.log("My OS version is " +
+		 * os); if(browser.equalsIgnoreCase("chrome")) {
+		 * WebDriverManager.chromedriver().setup(); driver = new ChromeDriver(); }else
+		 * if(browser.equalsIgnoreCase("firefox")) {
+		 * WebDriverManager.firefoxdriver().setup(); driver = new FirefoxDriver(); }else
+		 * if(browser.equalsIgnoreCase("opera")) {
+		 * WebDriverManager.operadriver().setup(); driver = new OperaDriver(); }else
+		 * if(browser.equalsIgnoreCase("edge")) { WebDriverManager.edgedriver().setup();
+		 * driver = new EdgeDriver(); }else if(browser.equalsIgnoreCase("ei")) {
+		 * WebDriverManager.iedriver().setup(); driver = new InternetExplorerDriver();
+		 * }else if(browser.equalsIgnoreCase("safari") && os.contains("Mac")) {
+		 * WebDriverManager.safaridriver().setup(); driver = new SafariDriver(); }else {
+		 * WebDriverManager.chromedriver().setup(); driver = new ChromeDriver(); }
+		 * 
+		 */
+
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 
@@ -98,7 +83,7 @@ public class BaseClass {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(configurable.getPageLoadWait()));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configurable.getElementImplicitWait()));
 		wait = new WebDriverWait(driver, Duration.ofSeconds(configurable.getExplicitWait()));
-		js = (JavascriptExecutor) driver;
+
 		try {
 			robot = new Robot();
 		} catch (AWTException e) {
@@ -122,10 +107,13 @@ public class BaseClass {
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			ExtentTestManager.getTest().log(Status.PASS, "Test pass");
 		} else if (result.getStatus() == ITestResult.FAILURE) {
+			ExtentTestManager.getTest().addScreenCaptureFromPath(commonMethods.addScreenShotToLocal(result.getName()));
 			ExtentTestManager.getTest().log(Status.FAIL, "Test failed");
+			// commonMethods.addScreenShotTOLocal();//will add local only
 		} else {
 			ExtentTestManager.getTest().log(Status.SKIP, "Test skipped");
 		}
+		quittingBrowser();
 	}
 
 	@AfterMethod
@@ -148,7 +136,7 @@ public class BaseClass {
 		shopClassPage = new ShopClassPage(driver);
 		freePhoneClass = new FreePhoneClass(driver);
 		configurable = Configurable.getInstamce();
-
+		js = (JavascriptExecutor) driver;
 	}
 
 }
